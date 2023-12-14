@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Calanoc_EX3</string>
+    <string name="company">ABC JOB SOURCING</string>
+    <string name="accInfo">Account Information</string>
+    <string name="addInfo">Add Information</string>
+    <string name="role">Role:</string>
+    <string name="role1">Programmer</string>
+    <string name="role2">Analyst</string>
+    <string name="role3">Tester</string>
+    <string name="gross">Gross:</string>
+    <string name="net">Net:</string>
+    <string name="addRole">Contractor\'s Role:</string>
+    <string name="addName">Contractor\'s Name:</string>
+    <string name="addDependents">No. of Dependents:</string>
+    <string name="addHoursWorked">No. of Hours Worked:</string>
+    <string name="default_role">N/A</string>
+    <string name="default_gross">0.00</string>
+    <string name="default_net">0.00</string>
+    <string name="submit">Submit</string>
+    <string-array name="spinner_items">
+        <item>Programmer</item>
+        <item>Analyst</item>
+        <item>Tester</item>
+    </string-array>
+</resources>

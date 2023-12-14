@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainBody"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E5E7F0"
+    tools:context=".MainActivity" >
+
+
+    <View
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:background="@color/primaryColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/company_name"
+        android:layout_width="208dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/helvetica_bold"
+        android:text="@string/company"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/header"
+        app:layout_constraintTop_toTopOf="@id/header" />
+
+    <View
+        android:id="@+id/header_line"
+        android:layout_width="wrap_content"
+        android:layout_height="3px"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+    <LinearLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_line">
+
+        <!-- Include the first fragment layout -->
+        <include
+            layout="@layout/fragment_first"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Include the second fragment layout -->
+        <include
+            layout="@layout/fragment_second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
