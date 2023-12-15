@@ -29,7 +29,7 @@ public class FirstFragment extends Fragment {
 
     public void displayResults(String role, double grossPay, double netPay) {
         roleTextView.setText(role);
-        grossPayTextView.setText(""+grossPay);
-        netTextView.setText(""+netPay);
+        grossPayTextView.setText(String.format("%.2f", grossPay));
+        netTextView.setText(String.format("%.2f", netPay));
     }
 }

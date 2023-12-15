@@ -16,6 +16,8 @@ import java.util.List;
 
 public class SecondFragment extends Fragment {
 
+    private String selectedRole; // Declare a variable to store the selected role
+
     public SecondFragment() {
         // Required empty public constructor
     }
@@ -37,7 +39,8 @@ public class SecondFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // Handle item selection here
                 SpinnerItem selectedSpinnerItem = (SpinnerItem) parentView.getItemAtPosition(position);
-                Toast.makeText(requireContext(), "Selected: " + selectedSpinnerItem.getText(), Toast.LENGTH_SHORT).show();
+                selectedRole = selectedSpinnerItem.getText(); // Store the selected role
+                Toast.makeText(requireContext(), "Selected: " + selectedRole, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -66,6 +69,20 @@ public class SecondFragment extends Fragment {
 
         return new CustomSpinnerAdapter(requireContext(), spinnerItemList);
     }
+
+    private void calculateAndDisplayResults(View view) {
+        // Retrieve user input
+        int dependents = Integer.parseInt(((EditText) view.findViewById(R.id.edit_dependent)).getText().toString());
+        double hoursWorked = Double.parseDouble(((EditText) view.findViewById(R.id.edit_hours_work)).getText().toString());
+
+        // Perform computation
+        double grossPay = calculateGrossPay(hoursWorked);
+        double netPay = calculateNetPay(grossPay, dependents);
+
+        // Pass results to MainActivity to update FirstFragment
+        MainActivity mainActivity = (MainActivity) requireActivity();
+        mainActivity.updateFirstFragment(selectedRole, grossPay, netPay);
+    }
     private double calculateGrossPay(double hoursWorked) {
         // Implement your logic to calculate gross pay based on role and hours worked
         // This is just a placeholder, you need to replace it with your actual calculation
@@ -77,21 +94,6 @@ public class SecondFragment extends Fragment {
         double incomeTaxDeduction = (grossPay - (grossPay * 0.05 * dependents)) * 0.15;
         return grossPay - incomeTaxDeduction;
     }
-    private void calculateAndDisplayResults(View view) {
-        // Retrieve user input
-        String role = ((Spinner) view.findViewById(R.id.custom_spinner)).getSelectedItem().toString();
-        int dependents = Integer.parseInt(((EditText) view.findViewById(R.id.edit_dependent)).getText().toString());
-        double hoursWorked = Double.parseDouble(((EditText) view.findViewById(R.id.edit_hours_work)).getText().toString());
-
-        // Perform computation
-        double grossPay = calculateGrossPay(hoursWorked);
-        double netPay = calculateNetPay(grossPay, dependents);
-
-        // Pass results to MainActivity to update FirstFragment
-        MainActivity mainActivity = (MainActivity) requireActivity();
-        mainActivity.updateFirstFragment(role, grossPay, netPay);
-    }
-
 
 
 }
