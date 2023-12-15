@@ -25,14 +25,13 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-
         // Replace the container with the FirstFragment
         FirstFragment firstFragment = new FirstFragment();
-        fragmentTransaction.replace(R.id.fragmentFirstContainer, firstFragment);
+        fragmentTransaction.add(R.id.fragmentFirstContainer, firstFragment);
 
         // Replace the container with the SecondFragment
         SecondFragment secondFragment = new SecondFragment();
-        fragmentTransaction.replace(R.id.fragmentSecondContainer, secondFragment);
+        fragmentTransaction.add(R.id.fragmentSecondContainer, secondFragment);
         // Commit the transaction
         fragmentTransaction.commit();
     }
