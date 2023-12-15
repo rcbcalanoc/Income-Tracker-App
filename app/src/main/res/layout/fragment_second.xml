@@ -18,7 +18,7 @@
         android:layout_width="132dp"
         android:layout_height="55dp"
         android:layout_marginStart="128dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="7dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/user" />
@@ -55,15 +55,13 @@
         app:layout_constraintTop_toBottomOf="@id/add_info" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/custom_spinner"
         android:layout_width="168dp"
-        android:layout_height="25dp"
+        android:layout_height="35dp"
         android:layout_marginStart="164dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/custom_form_fill"
-        android:entries="@array/spinner_items"
         android:fontFamily="@font/helvetica_light"
-        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="@id/add_role"
         app:layout_constraintTop_toBottomOf="@id/add_info" />
 
@@ -72,7 +70,7 @@
         android:layout_width="137dp"
         android:layout_height="22dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/helvetica_light"
         android:text="@string/addName"
         android:textAlignment="textStart"
@@ -84,7 +82,7 @@
     <EditText
         android:id="@+id/edit_name"
         android:layout_width="168dp"
-        android:layout_height="25dp"
+        android:layout_height="35dp"
         android:layout_marginStart="164dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_form_fill"
@@ -93,14 +91,14 @@
         android:inputType="text"
         android:textSize="16dp"
         app:layout_constraintStart_toStartOf="@id/add_name"
-        app:layout_constraintTop_toBottomOf="@id/spinner" />
+        app:layout_constraintTop_toBottomOf="@id/custom_spinner" />
 
     <TextView
         android:id="@+id/add_dependent"
         android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/helvetica_light"
         android:text="@string/addDependents"
         android:textAlignment="textStart"
@@ -112,7 +110,7 @@
     <EditText
         android:id="@+id/edit_dependent"
         android:layout_width="168dp"
-        android:layout_height="25dp"
+        android:layout_height="35dp"
         android:layout_marginStart="164dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_form_fill"
@@ -128,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/helvetica_light"
         android:text="@string/addHoursWorked"
         android:textAlignment="textStart"
@@ -140,7 +138,7 @@
     <EditText
         android:id="@+id/edit_hours_work"
         android:layout_width="168dp"
-        android:layout_height="25dp"
+        android:layout_height="35dp"
         android:layout_marginStart="164dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_form_fill"
@@ -154,15 +152,15 @@
     <Button
         android:id="@+id/submit_form"
         android:layout_width="153dp"
-        android:layout_height="46dp"
+        android:layout_height="40dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/custom_button"
-        android:text="@string/submit"
-        android:textColor="@color/white"
         android:fontFamily="@font/helvetica_bold"
-        android:textSize="20dp"
+        android:text="@string/submit"
         android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_hours_work" />
 
