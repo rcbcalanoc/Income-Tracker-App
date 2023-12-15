@@ -4,12 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.fragment.app.Fragment;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+
 import java.util.ArrayList;
 import java.util.List;
-import android.widget.AdapterView;
-import android.widget.Toast;
 
 public class SecondFragment extends Fragment {
 
@@ -43,6 +46,14 @@ public class SecondFragment extends Fragment {
             }
         });
 
+        // Set click listener for the submit button
+        view.findViewById(R.id.submit_form).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculateAndDisplayResults(view);
+            }
+        });
+
         return view;
     }
 
@@ -53,10 +64,34 @@ public class SecondFragment extends Fragment {
         spinnerItemList.add(new SpinnerItem(R.drawable.analyst, "Analyst"));
         spinnerItemList.add(new SpinnerItem(R.drawable.tester, "Tester"));
 
-        // Add more items as needed
-
-        // Create and return the custom adapter
         return new CustomSpinnerAdapter(requireContext(), spinnerItemList);
     }
-}
+    private double calculateGrossPay(double hoursWorked) {
+        // Implement your logic to calculate gross pay based on role and hours worked
+        // This is just a placeholder, you need to replace it with your actual calculation
+        return 1000.0 * hoursWorked;
+    }
 
+    private double calculateNetPay(double grossPay, int dependents) {
+        // Implement the correct logic to calculate net pay based on gross pay and number of dependents
+        double incomeTaxDeduction = (grossPay - (grossPay * 0.05 * dependents)) * 0.15;
+        return grossPay - incomeTaxDeduction;
+    }
+    private void calculateAndDisplayResults(View view) {
+        // Retrieve user input
+        String role = ((Spinner) view.findViewById(R.id.custom_spinner)).getSelectedItem().toString();
+        int dependents = Integer.parseInt(((EditText) view.findViewById(R.id.edit_dependent)).getText().toString());
+        double hoursWorked = Double.parseDouble(((EditText) view.findViewById(R.id.edit_hours_work)).getText().toString());
+
+        // Perform computation
+        double grossPay = calculateGrossPay(hoursWorked);
+        double netPay = calculateNetPay(grossPay, dependents);
+
+        // Pass results to MainActivity to update FirstFragment
+        MainActivity mainActivity = (MainActivity) requireActivity();
+        mainActivity.updateFirstFragment(role, grossPay, netPay);
+    }
+
+
+
+}
